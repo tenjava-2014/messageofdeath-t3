@@ -1,5 +1,53 @@
 package com.tenjava.entries.messageofdeath.t3;
 
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class TenJava extends JavaPlugin {}
+import com.tenjava.entries.messageofdeath.t3.Utils.RandomEventsManager.RandomEventManager;
+import com.tenjava.entries.messageofdeath.t3.Utils.RandomEventsManager.Events.SinkHole1;
+
+public class TenJava extends JavaPlugin implements Listener {
+	
+	//Managers
+	private RandomEventManager randomEventManager;
+	
+	@Override
+	public void onEnable() {
+		/******************** Initation of Variables ********************/
+		//********** Managers **********
+		this.randomEventManager = new RandomEventManager();
+		
+		
+		//TODO TEMPORARY
+		super.getServer().getPluginManager().registerEvents(this, this);
+	}
+	
+	@Override
+	public void onDisable() {
+		
+	}
+	
+	//************************* Managers *************************
+	
+	public RandomEventManager getRandomEventManager() {
+		return this.randomEventManager;
+	}
+	
+	
+	
+	
+	
+	
+	
+	// TODO TEMPORARY
+	@EventHandler
+	public void onLeftClick(PlayerInteractEvent event) {
+		if(event.getAction() == Action.RIGHT_CLICK_AIR) {
+			SinkHole1 d = new SinkHole1(this);
+			d.run(event.getPlayer());
+		}
+	}
+}
