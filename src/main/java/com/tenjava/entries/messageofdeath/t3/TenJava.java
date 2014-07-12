@@ -11,6 +11,21 @@ import com.tenjava.entries.messageofdeath.t3.Utils.RandomEventsManager.Events.Si
 
 public class TenJava extends JavaPlugin implements Listener {
 	
+	/**
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 *   I did not finish
+	 *   I was very tired and got off and slept
+	 *   There is no point in looking here
+	 * 
+	 * 
+	 * 
+	 * 
+	 */
+	
 	//Managers
 	private RandomEventManager randomEventManager;
 	
@@ -47,6 +62,7 @@ public class TenJava extends JavaPlugin implements Listener {
 	public void onLeftClick(PlayerInteractEvent event) {
 		if(event.getAction() == Action.RIGHT_CLICK_AIR) {
 			SinkHole1 d = new SinkHole1(this);
+			event.getPlayer().sendMessage("Initating Special Event");
 			d.run(event.getPlayer());
 		}
 	}
